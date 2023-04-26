@@ -11,15 +11,23 @@
             "filename": "../../intro/intro.md"
         },
         {
-            "title": "Lab 1: Getting started with Unreal Engine and Oracle Cloud GPU",
-            "filename": "../../setup/setup.md"
-        },
-        {
-            "title": "Lab 2: Deploy OKE Cluster",
+            "title": "Lab 1: Deploy OKE Cluster",
             "filename": "../../deploy/deploy.md"
         },
         {
-            "title": "Lab 3: Cleanup",
+            "title": "Lab 2: Behind the scenes",
+            "filename": "../../overview/overview.md"
+        },
+        {
+            "title": "Lab 3: Unreal Pixelstreaming demo",
+            "filename": "../../demo/demo.md"
+        },
+        {
+            "title": "Lab 4: Telemetry",
+            "filename": "../../telemetry/telemetry.md"
+        },
+        {
+            "title": "Lab 4: Cleanup",
             "filename": "../../cleanup/cleanup.md"
         },
         {
