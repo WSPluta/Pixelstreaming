@@ -1,24 +1,18 @@
-# Unreal Pixel Streaming on OKE
-
-This project represents a scalable pixel streaming deployment on Oracle
-Container Engine for Kubernetes (OKE). It is built intentionally using
-the simplest constructs and/or dependencies with minimal customizations
-to original samples from Epic Games
+# Unreal Engine 5 PixelStreaming with OKE and Nvidia A10 Tensor Core GPU
 
 ## Services
 
 | Service | About |
 |--|--|
-| [signalserver](./src/signalserver) | Unreal "Cirrus" signal server with extensions |
-| [matchmaker](./src/matchmaker) | Unreal "Matchmaker" server with extensions |
-| [player](./src/player) | Unreal sample player (web) service with modifications |
-| [proxy](./src/proxy) | NGINX reverse proxy for individual streamer API interactions |
-| [router](./src/router) | Traefik proxy router (ingress) |
-| [turn](./src/turn) | coTURN daemonset for STUN/TURN |
-| [turn-api](./src/turn-api) | `turn` pool WebRTC configuration discovery/aggregator |
-| - | - |
-| [kubetools](./src/kubetools) | Container for sidecar/init `kubectl` utilities in cluster |
-| [unreal](./src/unreal) | Sample `Dockerfile` for an Unreal Pixel Streaming projects |
+| signalserver | Unreal "Cirrus" signal server with extensions |
+| matchmaker | Unreal "Matchmaker" server with extensions |
+| player | Unreal sample player (web) service with modifications |
+| proxy | NGINX reverse proxy for individual streamer API interactions |
+| router | Traefik proxy router (ingress) |
+| turn | coTURN daemonset for STUN/TURN |
+| turn-api | `turn` pool WebRTC configuration discovery/aggregator |
+| kubetools | Container for sidecar/init `kubectl` utilities in cluster |
+| unreal | Unreal Engine 5 Pixel Streaming project |
 
 ## About WebRTC
 
@@ -35,15 +29,8 @@ provide ICE candidates to the signal service
 
 ## Assumptions and Limitations
 
-This architecture is partially based on original sample code from Epic Games
-to support Unreal Engine Pixel Streaming (signalserver and matchmaker).
-There are some associated limitations with those services, many of which are
-described [here](https://tensorworks.com.au/blog/an-open-architecture-for-scalable-pixel-streaming/),
-as well as some introduced by this design. This section is meant to call attention
-to some known shortcomings that may require additional work.
-
 - Authentication is not included. Users should consider adding upstream auth,
-  or extending the [router](../src/router/) configurations.
+  or extending the router configurations.
 - Streamer availability is done via broadcast to matchmaker rather than using
   service discovery from endpoints.
 - Player websocket connections are queued through matchmaker and forwarded to
@@ -52,13 +39,13 @@ to some known shortcomings that may require additional work.
   player session affinity may be unpredictable.
 - Each WebRTC session establishes a peer-to-peer mesh, so the number of
   connections is n<sup>2</sup> where `n` is the number of participants.
-- The static browser code in [`src/player`](../src/player/) is mostly original,
+- The static browser code in `src/player` is mostly original,
   but slightly adapted for this runtime. It is meant purely as a starting point,
   however is not a model for modern web apps.
 - The demo applies some defaults to the pixel streaming runtime, including
   a maximum 30 frames per second value. This is an arbitrary selection for demo
-  performance, and may be adjusted in the env [ConfigMap](./base/streaming/config/pixel.properties).
-  Refer to [documentation](https://docs.unrealengine.com/4.27/en-US/SharingAndReleasing/PixelStreaming/PixelStreamingReference/).
+  performance, and may be adjusted in the env `ConfigMap`.
+- Any other questions refer to [documentation](https://docs.unrealengine.com/5.1/en-US/unreal-engine-pixel-streaming-reference/).
 
 ### GPU Allocation
 

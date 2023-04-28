@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Unreal PixelStreaming with OKE and GPU",
+    "workshoptitle": "Unreal Engine 5 PixelStreaming with OKE and Nvidia A10 Tensor Core GPU",
     "help": "livelabs-help-oci_us@oracle.com",
 	"tutorials": [
         {
@@ -15,15 +15,15 @@
             "filename": "../../deploy/deploy.md"
         },
         {
-            "title": "Lab 2: Behind the scenes",
+            "title": "Lab 2: Services and architecture",
             "filename": "../../overview/overview.md"
         },
         {
-            "title": "Lab 3: Unreal Pixelstreaming demo",
+            "title": "Lab 3: Unreal Engine 5 PixelStreaming deployment demo",
             "filename": "../../demo/demo.md"
         },
         {
-            "title": "Lab 4: Telemetry",
+            "title": "Lab 4: Observability",
             "filename": "../../telemetry/telemetry.md"
         },
         {
