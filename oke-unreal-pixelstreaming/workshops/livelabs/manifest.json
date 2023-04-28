@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Oracle Container Engine for Kubernetes",
+    "workshoptitle": "Unreal PixelStreaming with OKE and GPU",
     "help": "livelabs-help-oci_us@oracle.com",
 	"tutorials": [
         {
@@ -27,7 +27,7 @@
             "filename": "../../telemetry/telemetry.md"
         },
         {
-            "title": "Lab 4: Cleanup",
+            "title": "Lab 5: Cleanup",
             "filename": "../../cleanup/cleanup.md"
         },
         {
